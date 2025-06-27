@@ -6,6 +6,11 @@ const cors = require("cors");
 const authRoutes = require("./routes/authRoutes");
 const productRoutes = require("./routes/productRoutes");
 const orderRoutes = require("./routes/orderRoutes");
+const userRoutes = require('./routes/userRoutes');
+const categoryRoutes = require("./routes/categoryRoutes");
+app.use("/api/categories", categoryRoutes);
+app.use('/api/users', userRoutes);
+
 
 dotenv.config();
 const app = express();

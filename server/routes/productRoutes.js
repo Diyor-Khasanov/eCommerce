@@ -5,6 +5,7 @@ const {
   getProductById,
   updateProduct,
   deleteProduct,
+  createProductReview,
 } = require("../controllers/productController");
 const { protect, admin } = require("../middleware/authMiddleware");
 const router = express.Router();
@@ -16,4 +17,9 @@ router
   .put(protect, admin, updateProduct)
   .delete(protect, admin, deleteProduct);
 
+// YANGI
+router.route("/:id/reviews").post(protect, createProductReview);
+
 module.exports = router;
+
+router.get("/category/:categoryId", getProductsByCategory);
